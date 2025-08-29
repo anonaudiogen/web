@@ -38,8 +38,21 @@
       font-size: 1.2em;
     }
 
+    .row {
+      display: flex;
+      flex-wrap: nowrap;
+      justify-content: space-between;
+    }
+
+    .col-md-2 {
+      flex: 1;
+      min-width: 0; /* allows audio to shrink */
+      text-align: center;
+    }
+
     audio {
-      width: 200px;
+      width: 100%; /* stretch to fit column */
+      max-width: 180px; /* keep players compact */
     }
   </style>
 </head>
@@ -68,6 +81,22 @@
 <script>
 // Map of prompts to audio files
 const demoData = {
+    "lion_growling": [
+    { file: "vocal_sketch.wav", label: "Vocal Sketch" },
+    { file: "lion_growling-ss.wav", label: "SAOS" },
+    { file: "lion_growling-ssc.wav", label: "SAOS + Controls" },
+    { file: "lion_growling-ff.wav", label: "FlashFoley" },
+    { file: "lion_growling-ffbar.wav", label: "FlashFoley + BAR" },
+    { file: "lion_growling-ffsl.wav", label: "+ Sketch L_C" },
+  ],
+    "subsynth": [
+    { file: "vocal_sketch.wav", label: "Vocal Sketch" },
+    { file: "subsynth-ss.wav", label: "SAOS" },
+    { file: "subsynth-ssc.wav", label: "SAOS + Controls" },
+    { file: "subsynth-ff.wav", label: "FlashFoley" },
+    { file: "subsynth-ffbar.wav", label: "FlashFoley + BAR" },
+    { file: "subsynth-ffsl.wav", label: "+ Sketch L_C" },
+  ],
   "ambulance_siren": [
     { file: "vocal_sketch.wav", label: "Vocal Sketch" },
     { file: "ambulance_siren-ss.wav", label: "SAOS" },
@@ -75,22 +104,6 @@ const demoData = {
     { file: "ambulance_siren-ff.wav", label: "FlashFoley" },
     { file: "ambulance_siren-ffbar.wav", label: "FlashFoley + BAR" },
     { file: "ambulance_siren-ffsl.wav", label: "+ Sketch L_C" }
-  ],
-  "basketball_dribbling": [
-    { file: "vocal_sketch.wav", label: "Vocal Sketch" },
-    { file: "basketball_dribbling-ss.wav", label: "SAOS" },
-    { file: "basketball_dribbling-ssc.wav", label: "SAOS + Controls" },
-    { file: "basketball_dribbling-ff.wav", label: "FlashFoley" },
-    { file: "basketball_dribbling-ffbar.wav", label: "FlashFoley + BAR" },
-    { file: "basketball_dribbling-ffsl.wav", label: "+ Sketch L_C" },
-  ],
-  "lion_growling": [
-    { file: "vocal_sketch.wav", label: "Vocal Sketch" },
-    { file: "lion_growling-ss.wav", label: "SAOS" },
-    { file: "lion_growling-ssc.wav", label: "SAOS + Controls" },
-    { file: "lion_growling-ff.wav", label: "FlashFoley" },
-    { file: "lion_growling-ffbar.wav", label: "FlashFoley + BAR" },
-    { file: "lion_growling-ffsl.wav", label: "+ Sketch L_C" },
   ],
   "pinball_playing": [
     { file: "vocal_sketch.wav", label: "Vocal Sketch" },
@@ -100,13 +113,13 @@ const demoData = {
     { file: "pinball_playing-ffbar.wav", label: "FlashFoley + BAR" },
     { file: "pinball_playing-ffsl.wav", label: "+ Sketch L_C" },
   ],
-  "subsynth": [
+  "basketball_dribbling": [
     { file: "vocal_sketch.wav", label: "Vocal Sketch" },
-    { file: "subsynth-ss.wav", label: "SAOS" },
-    { file: "subsynth-ssc.wav", label: "SAOS + Controls" },
-    { file: "subsynth-ff.wav", label: "FlashFoley" },
-    { file: "subsynth-ffbar.wav", label: "FlashFoley + BAR" },
-    { file: "subsynth-ffsl.wav", label: "+ Sketch L_C" },
+    { file: "basketball_dribbling-ss.wav", label: "SAOS" },
+    { file: "basketball_dribbling-ssc.wav", label: "SAOS + Controls" },
+    { file: "basketball_dribbling-ff.wav", label: "FlashFoley" },
+    { file: "basketball_dribbling-ffbar.wav", label: "FlashFoley + BAR" },
+    { file: "basketball_dribbling-ffsl.wav", label: "+ Sketch L_C" },
   ]
 };
 
